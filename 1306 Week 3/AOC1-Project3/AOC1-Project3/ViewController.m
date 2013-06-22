@@ -28,7 +28,7 @@
     NSMutableString *AddText = [[NSMutableString alloc] init];
     [AddText appendString:meaningOfLife];
     
-    NSRange range = NSMakeRange(15, 2);
+    NSRange range = NSMakeRange(14, 2);
     [AddText replaceCharactersInRange:range withString:numberToString];
     [self DisplayAlertWithString:AddText];
     
