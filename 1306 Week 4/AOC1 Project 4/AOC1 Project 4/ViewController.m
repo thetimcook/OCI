@@ -57,24 +57,12 @@
     if (usernameDisplay != nil) {
         
         usernameDisplay.text = @"Please Enter Username";
-        usernameDisplay.textColor = [UIColor blueColor];
         usernameDisplay.textAlignment = NSTextAlignmentCenter;
         usernameDisplay.backgroundColor = [UIColor lightGrayColor];
+        usernameDisplay.textColor = [UIColor blueColor];
         usernameDisplay.numberOfLines = 2;
         
         [self.view addSubview:usernameDisplay];
-    }
-    
-    
-//a button that calls an alert the tells the current date and time
-    showDate = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    if (showDate != nil) {
-        showDate.frame = CGRectMake(20.0f, 200.0f, 120.0f, 30.0f);
-        showDate.tag = DATE_BUTTON;
-        [showDate setTitle:@"Show Date" forState:UIControlStateNormal];
-        [showDate addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [self.view addSubview:showDate];
     }
     
 //creates an info button that will display a text box below
@@ -90,11 +78,23 @@
 //creates the text box that is triggered by the info button
     aboutMe = [[UILabel alloc] initWithFrame:CGRectMake(30.0f, 340.0f, 260.0f, 70.0f)];
     if (aboutMe != nil) {
-        aboutMe.textColor = [UIColor blueColor];
         aboutMe.textAlignment = NSTextAlignmentLeft;
+        aboutMe.textColor = [UIColor blueColor];
         aboutMe.numberOfLines = 2;
         [self.view addSubview:aboutMe];
     }
+    
+//a button that calls an alert the tells the current date and time
+    showDate = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    if (showDate != nil) {
+        showDate.frame = CGRectMake(20.0f, 200.0f, 120.0f, 30.0f);
+        showDate.tag = DATE_BUTTON;
+        [showDate setTitle:@"Show Date" forState:UIControlStateNormal];
+        [showDate addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view addSubview:showDate];
+    }
+    
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view, typically from a nib.
@@ -122,7 +122,8 @@
                 [displayDate show];
             }
         }
-            break;
+            
+        break;
             
     //displays text when the info button is clicked
         case INFO_BUTTON:
@@ -130,7 +131,7 @@
             aboutMe.text = @"This application was created by: Tim Cook";
         }
             
-            break;
+        break;
             
     //displays text when the login button is clicked
     //if there is text in the input field then is displays the username
@@ -144,11 +145,11 @@
             } else {
                 usernameDisplay.text = @"Username cannot be empty";
             }
-            
         }
-            break;
+            
+        break;
         default:
-            break;
+        break;
     }
     
 }
